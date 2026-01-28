@@ -46,11 +46,10 @@ class _MyHomePageState extends State<MyHomePage> {
           setState(() {
             _seconds++;
           });
+        });
+      }
     });
   }
-    }
-  }
-}
 
   @override
   Widget build(BuildContext context) {
