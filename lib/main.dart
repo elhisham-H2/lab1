@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Timer Lab',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: Colors.white),
+        colorScheme: .fromSeed(seedColor: Colors.blue),
       ),
       home: const MyHomePage(title: 'Lab N1'),
     );
@@ -57,6 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
+        centerTitle: false,
       ),
       body: Center(
         child: Column(
@@ -70,12 +71,22 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         onPressed: _toggleTimer,
         tooltip: _isActive ? 'Stop' : 'Start',
-        backgroundColor: _isActive ? Colors.deepOrange : Colors.green,
-        child: Icon(_isActive ? Icons.stop : Icons.play_arrow),
+        backgroundColor: _isActive ? Colors.red : Colors.blue,
+        foregroundColor: Colors.white,
+        shape: CircleBorder(),
+        child: Icon(_isActive ? Icons.stop : Icons.play_circle_outline_rounded),
+      ),
+      
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.white,
+        shape: const CircularNotchedRectangle(), 
+        notchMargin: 8.0, 
+        child: Container(height: 50.0), 
       ),
     );
   }
