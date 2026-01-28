@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Timer Lab',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: .fromSeed(seedColor: Colors.white),
       ),
       home: const MyHomePage(title: 'Lab N1'),
     );
@@ -60,20 +60,22 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: .center,
-          children: [
-            const Text('Timer:'),
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Text('Timer:', style: TextStyle(fontSize: 36)),
             Text(
-              '$_timer',
-              style: Theme.of(context).textTheme.headlineMedium,
+              '$_seconds',
+              style: const TextStyle(fontSize: 42, fontWeight: FontWeight.bold),
             ),
           ],
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         onPressed: _toggleTimer,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+        tooltip: _isActive ? 'Stop' : 'Start',
+        backgroundColor: _isActive ? Colors.deepOrange : Colors.green,
+        child: Icon(_isActive ? Icons.stop : Icons.play_arrow),
       ),
     );
   }
