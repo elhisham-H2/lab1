@@ -13,9 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Timer Lab',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: Colors.blue),
-      ),
+      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.blue)),
       home: const MyHomePage(title: 'Lab N1'),
     );
   }
@@ -39,8 +37,8 @@ class _MyHomePageState extends State<MyHomePage> {
       if (_isActive) {
         _timer?.cancel();
         _isActive = false;
-        _seconds = 0; 
       } else {
+        _seconds = 0;
         _isActive = true;
         _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
           setState(() {
@@ -71,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      
+
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         onPressed: _toggleTimer,
@@ -81,12 +79,12 @@ class _MyHomePageState extends State<MyHomePage> {
         shape: CircleBorder(),
         child: Icon(_isActive ? Icons.stop : Icons.play_circle_outline_rounded),
       ),
-      
+
       bottomNavigationBar: BottomAppBar(
         color: Colors.white,
-        shape: const CircularNotchedRectangle(), 
-        notchMargin: 8.0, 
-        child: Container(height: 50.0), 
+        shape: const CircularNotchedRectangle(),
+        notchMargin: 8.0,
+        child: Container(height: 50.0),
       ),
     );
   }
